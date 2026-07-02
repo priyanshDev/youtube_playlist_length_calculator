@@ -79,3 +79,11 @@ include("config.php");
 include("result.php");
 
 ?>
+
+
+<?php
+
+
+echo "Priyansh 2026";
+
+?>
