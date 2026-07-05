@@ -62,6 +62,21 @@ echo "Total youtube playlist time is: {$hour}
         hours {$minutes} minutes {$seconds} seconds";
         
     }
+
+$urli = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=$playlistId&key=$apikey";
+$responsei = file_get_contents($urli);
+$dati  = json_decode($responsei, true);
+
+$creator = $dati['items'][0]['snippet']['channelTitle'];
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -73,3 +88,33 @@ echo "Total youtube playlist time is: {$hour}
 
 
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="result">
+            <p>Creator is <?php echo "{$creator }" ?> </p>
+            <p>Video Count is <?php echo "loda" ?> </p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- // Playlist name 
+// creator 
+// video count 
+// Average video length 
+// Total length
+// at 1.25
+// at 1.5
+// at 1.75
+// at 2x  -->

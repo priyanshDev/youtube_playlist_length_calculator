@@ -103,7 +103,41 @@ body{
 .playlist{
     padding: 30px;
 }
-
-.playlist  .url{
-    height: 200px;
+.container{
+    padding: 50px;
+    display: flex;
+    background-color: #B2D7E9;
+    justify-content: center;
+    align-items: center;
+    margin: 50px
 }
+h2{
+    padding: 16px;
+}
+
+form{
+    padding: 24px;
+}
+
+.btn{
+    height: 44px;
+    width: 80px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+.url{
+    height: 44px;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background-color: black;
+    color: #fff;
+    
+}
+
+
+
+

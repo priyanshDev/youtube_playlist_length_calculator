@@ -50,40 +50,43 @@ include("config.php");
         </div>
 
     </nav>
+    <div class="container">
 
-    <div class="content">
-        <h2>Youtube Playlist Length Calculator</h2>
-        <p>Calculate total duration instantly. See how long it takes to watch at different playbacks speeds (1.25x, 1.5x, 2x)</p>
-    </div>
+    
+    
     <div class="playlist">
+         <h2>Youtube Playlist Length Calculator</h2>
+        <p>Calculate total duration instantly. See how long it takes to watch at different playbacks speeds (1.25x, 1.5x, 2x)</p>
         <form action="index.php" method="post">
             <label for="">Paste Youtube URL --> </label>
-            <input class="url" type="text" name="link"
-            placeholder="Playlist -> https://www.youtube.com/watch?v=X8t8axbZnH8
-                                    youtube.com
-                                    Tip: Paste multiple links one per line">
-             <input type="submit" name="submit" value="Calculate">                       
+            <input
+    style="height:80px width: 200px;"
+    class="url"
+    type="text"
+    name="link"
+    placeholder="Playlist -> https://www.youtube.com/watch?v=X8t8axbZnH8">
+
+<input class="btn" type="submit" name="submit" value="Calculate">
         </form>
     </div>
 
+    </div>
 
+    <div class="result">
+        <?php include("result.php"); ?>
+    </div>
 
 
 </body>
 </html>
 
-
-
 <?php
 
-include("result.php");
+include("footer.php");
 
 ?>
 
 
-<?php
 
 
-echo "Priyansh 2026";
 
-?>
