@@ -5,17 +5,18 @@ include("config.php");
 
 if (isset($_POST["submit"])){
     if (empty($_POST["link"])){
-        echo "pls enter a valid link";
+        echo " ";
     }    
     else {
         $url  = $_POST["link"];
+
         parse_str(parse_url($url , PHP_URL_QUERY), $query);
         $playlistId = $query['list'];
 
         $url  = "https://www.googleapis.com/youtube/v3/playlistItems?" . 
         "part=contentDetails" . 
         "&playlistId=".$playlistId . 
-        "&maxResults=50" . 
+        "&maxResults=100" . 
         "&key=".$apikey;
 
 
@@ -58,8 +59,7 @@ $hour  = floor($totalsec/3600);
 $minutes  = floor(($totalsec%3600)/60);
 $seconds  =  floor($totalsec%60);
 
-echo "Total youtube playlist time is: {$hour} 
-        hours {$minutes} minutes {$seconds} seconds";
+
         
     }
 
@@ -68,6 +68,34 @@ $responsei = file_get_contents($urli);
 $dati  = json_decode($responsei, true);
 
 $creator = $dati['items'][0]['snippet']['channelTitle'];
+
+$url2 = "https://www.googleapis.com/youtube/v3/playlists?part=contentDetails&id=$playlistId&key=$apikey";
+
+$response2  = file_get_contents($url2);
+$data2 = json_decode($response2, true);
+
+$count  = $data2['items'][0]['contentDetails']['itemCount'];
+
+$average  = ($totalsec/60)/$count;
+$avgsec = floor(((($totalsec/60)%$count)*60)/$count);
+
+$average  = floor($average);
+
+$mint = floor($totalsec/60);
+$mint2 = floor($mint/1.25);
+$mint3 = floor($mint/1.5);
+$mint4 = floor($mint/1.75);
+$mint5 = floor($mint/2);
+
+$hour2  = floor($mint2/60);
+$hour3  = floor($mint3/60);
+$hour4  = floor($mint4/60);
+$hour5  = floor($mint5/60);
+
+$mints2 = $mint2%60;
+$mints3 = $mint3%60;
+$mints4 = $mint4%60;
+$mints5 = $mint5%60;
 
 
 
@@ -102,19 +130,17 @@ $creator = $dati['items'][0]['snippet']['channelTitle'];
     <div class="container">
         <div class="result">
             <p>Creator is <?php echo "{$creator }" ?> </p>
-            <p>Video Count is <?php echo "loda" ?> </p>
+            <p>Video Count is <?php echo "{$count}" ?> </p>
+             <p>Average Video Length <?php echo "{$average} minutes {$avgsec} seconds" ?> </p>
+             <p>Total Length of Playlist is <?php echo "{$hour} hours {$minutes} minutes {$seconds} seconds";   ?></p>
+             <p>Total Length of Playlist at (1.25x) - <?php echo "{$hour2} hours {$mints2} minutes ";   ?></p>
+             <p>Total Length of Playlist at (1.50x) - <?php echo "{$hour3} hours {$mints3} minutes";   ?></p>
+             <p>Total Length of Playlist at (1.75x) - <?php echo "{$hour4} hours {$mints4} minutes";   ?></p>
+             <p>Total Length of Playlist at (2x) - <?php echo "{$hour5} hours {$mints5} minutes ";   ?></p>
+
         </div>
     </div>
 </body>
 </html>
 
 
-<!-- // Playlist name 
-// creator 
-// video count 
-// Average video length 
-// Total length
-// at 1.25
-// at 1.5
-// at 1.75
-// at 2x  -->

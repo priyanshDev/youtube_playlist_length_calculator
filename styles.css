@@ -8,6 +8,7 @@
 body{
     font-family: sans-serif;
     background: #fff;
+    background-color: #293681;
 }
 
 .navbar{
@@ -17,7 +18,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    color: #fff;
     border-bottom: 1px solid #eee;
 
 }
@@ -25,7 +26,7 @@ body{
 
 .logo a{
     text-decoration: none;
-    color:#222;
+    color:#fff;
     font-size: 32px;
     font-weight: 700px;
 }
@@ -38,14 +39,14 @@ body{
 
 .nav-links a{
     text-decoration: none;
-    color: #222;
+    color: #fff;
     font-size: 18px;
     font-weight: 500;
     transition: 3s;
 }
 
 .nav-links a:hover{
-    color: #0D6EFD;
+    color: #95CCDD;
 }
 
 .nav-right{
@@ -60,14 +61,14 @@ body{
     gap: 8px;
 
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-size: 17px;
     font-weight: 500;
     transition: 3s;
 }
 
 .nav-right a:hover{
-    color:#0D6EFD;
+    color:#95CCDD;
 }
 
 .language .fa-chevron-down{
@@ -106,7 +107,7 @@ body{
 .container{
     padding: 50px;
     display: flex;
-    background-color: #B2D7E9;
+    background-color: #95CCDD;
     justify-content: center;
     align-items: center;
     margin: 50px

@@ -56,7 +56,7 @@ include("config.php");
     
     <div class="playlist">
          <h2>Youtube Playlist Length Calculator</h2>
-        <p>Calculate total duration instantly. See how long it takes to watch at different playbacks speeds (1.25x, 1.5x, 2x)</p>
+        <p style="text-align: center"; >Calculate Total Duration of any Youtube PlayList</p>
         <form action="index.php" method="post">
             <label for="">Paste Youtube URL --> </label>
             <input
@@ -73,7 +73,25 @@ include("config.php");
     </div>
 
     <div class="result">
-        <?php include("result.php"); ?>
+        <?php 
+        if (isset($_POST['submit'])){
+            $l = $_POST['link'];
+            if (!empty($l)){
+                if(filter_var($l, FILTER_VALIDATE_URL)){
+                include("result.php"); 
+            }
+            else{ ?>
+                <div class="container">
+                    <p>Please Enter a Valid URL</p>
+                </div>
+                <?php
+            }
+            }
+            
+        }
+        
+        
+        ?>
     </div>
 
 
